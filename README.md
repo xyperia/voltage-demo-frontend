@@ -6,4 +6,4 @@ How to setup project:
 1. Run ```pnpm install``` to install all required dependencies
 2. Run ```ng serve``` to debug project
 
-## This project requires [crud-demo-backend](https://github.com/xyperia/crud-demo-backend) as backend server in order to run this project
+### This project requires [crud-demo-backend](https://github.com/xyperia/crud-demo-backend) as backend server in order to run this project
