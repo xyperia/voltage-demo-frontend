@@ -1,0 +1,44 @@
+<h1 *ngIf="isAddMode">Add User</h1>
+<h1 *ngIf="!isAddMode">Edit User</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+        <div>
+            <label for="USERNAME">USERNAME</label>
+            <input type="text" formControlName="USERNAME" [ngClass]="{ 'is-invalid': submitted && f.USERNAME.errors }" />
+            <div *ngIf="submitted && f.USERNAME.errors">
+                <div *ngIf="f.USERNAME.errors.required">First Name is required</div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div >
+            <label for="PASSWORD">
+                PASSWORD
+                <em *ngIf="!isAddMode">(Leave blank to keep the same password)</em>
+            </label>
+            <input type="password" formControlName="PASSWORD" [ngClass]="{ 'is-invalid': submitted && f.PASSWORD.errors }" />
+            <div *ngIf="submitted && f.PASSWORD.errors">
+                <div *ngIf="f.PASSWORD.errors.required">Password is required</div>
+                <div *ngIf="f.PASSWORD.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <label for="ROLE_ID">ROLE_ID</label>
+            <input type="text" formControlName="ROLE_ID" [ngClass]="{ 'is-invalid': submitted && f.ROLE_ID.errors }" />
+            <div *ngIf="submitted && f.ROLE_ID.errors">
+                <div *ngIf="f.ROLE_ID.errors.required">ROLE_ID is required</div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <button [disabled]="loading">
+            <span *ngIf="loading"></span>
+            Save
+        </button>
+        <a routerLink="/users">Cancel</a>
+    </div>
+</form>

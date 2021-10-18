@@ -1,0 +1,26 @@
+﻿<h2>Virtus Platform&trade; by Virtus Technology Indonesia</h2>
+<div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        
+                <label>Username</label>
+                <input type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" >
+                <div *ngIf="submitted && f.username.errors">
+                    Username is required
+                </div>
+
+                <label>Password</label>
+                <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
+                <div *ngIf="submitted && f.username.errors">
+                    Password is required
+                </div>
+
+            <button [disabled]="loading">
+                <span *ngIf="loading"></span>
+                Login
+            </button>
+            
+    </form>
+
+</div>
+
+    

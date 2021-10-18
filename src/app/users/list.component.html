@@ -1,0 +1,30 @@
+﻿<a routerLink="add">Add User</a>
+<table>
+    <thead>
+        <tr>
+            <th style="width: 30%">USERNAME</th>
+            <th style="width: 30%">PASSWORD</th>
+            <th style="width: 30%">ROLE_ID</th>
+            <th style="width: 10%">ACTION</th>
+        </tr>
+    </thead>
+    <tbody align="center">
+        <tr *ngFor="let user of users">
+            <td>{{user.USERNAME}}</td>
+            <td>{{user.PASSWORD}}</td>
+            <td>{{user.ROLE_ID}}</td>
+            <td style="white-space: nowrap">
+                <a routerLink="edit/{{user.ID}}">Edit</a>
+                <button (click)="deleteUser(user.ID)" [disabled]="user.isDeleting">
+                    <span *ngIf="user.isDeleting"></span>
+                    <span *ngIf="!user.isDeleting">Delete</span>
+                </button>
+            </td>
+        </tr>
+        <tr *ngIf="!users">
+            <td colspan="4" class="text-center">
+                <span></span>
+            </td>
+        </tr>
+    </tbody>
+</table>
