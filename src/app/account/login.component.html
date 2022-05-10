@@ -1,26 +1,30 @@
-﻿<h2>Virtus Platform&trade; by Virtus Technology Indonesia</h2>
-<div>
+﻿<div class="center">
+
+    <h2>Voltage API Demo w/ NodeJS</h2>
+
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        
-                <label>Username</label>
-                <input type="text" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" >
-                <div *ngIf="submitted && f.username.errors">
-                    Username is required
-                </div>
 
-                <label>Password</label>
-                <input type="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" >
-                <div *ngIf="submitted && f.username.errors">
-                    Password is required
-                </div>
+        <mat-form-field class="form-width" appearance="fill">
+            <mat-label>Username</mat-label>
+            <input matInput type="text" formControlName="username">
+        </mat-form-field>
 
-            <button [disabled]="loading">
-                <span *ngIf="loading"></span>
-                Login
-            </button>
+        <br/>
+
+        <mat-form-field class="form-width" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password">
+        </mat-form-field>
+
+        <br/>
+
+        <button mat-stroked-button color="primary" class="form-width" [disabled]="loading">
+            <span *ngIf="loading"></span>
+            Login
+        </button>
             
     </form>
-
 </div>
+
 
     

@@ -13,6 +13,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(
     private service:DashboardService
   ) {  }
+  
+  public logout(): void {
+    // todo
+  }
 
   ngOnInit(): void{
   }

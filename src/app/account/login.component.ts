@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AccountService } from '../services';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit {
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private accountService: AccountService
+        private accountService: AccountService,
+        private _snackBar: MatSnackBar
     ) { }
 
     ngOnInit() {
@@ -54,6 +56,6 @@ export class LoginComponent implements OnInit {
     }
 
     openSnackBar(message: string) {
-        console.log(message);
+        this._snackBar.open(message);
     }
 }

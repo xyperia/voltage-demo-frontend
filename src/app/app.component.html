@@ -1,11 +1,35 @@
-<div *ngIf="user; else loginForm">
-  <a href="#" (click)="logout()">Log Out</a> <br>
-  <a routerLink="users">Users</a> <br>
-  <a routerLink="dashboard">Dashboard</a>
-      <div>
-        <h2>Halo {{user.USERNAME}}, Kamu berada di halaman {{pageTitle}}</h2>
-        <router-outlet></router-outlet>
-      </div>
+<div *ngIf="user; else loginForm" class="login">
+  
+  <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center" class="mat-elevation-z8">
+    <button mat-button [mat-menu-trigger-for]="menu" fxHide="false" fxHide.gt-sm>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>
+      <button mat-button routerLink="/">{{getTitle}}</button>
+    </span>
+    
+    <button mat-button routerLink="users">
+      <!-- <mat-icon>supervised_user_circle</mat-icon> -->
+      Users
+    </button>
+    <button mat-button>
+      <!-- <mat-icon>dvr</mat-icon> -->
+      Data Samples
+    </button>
+  </mat-toolbar>
+
+  <br/>
+
+  <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>power_settings_new</mat-icon>
+      Logout
+    </button>
+  </mat-menu>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
 </div>
 
 <ng-template #loginForm>
