@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor, ErrorInterceptor } from './helpers';
 import { MaterialModule } from 'src/assets/material.module';
+import { ConfigurationsModule } from './configurations/configurations.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MaterialModule } from 'src/assets/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     DashboardModule,
+    ConfigurationsModule,
     HttpClientModule,
     CommonModule,
     BrowserModule,

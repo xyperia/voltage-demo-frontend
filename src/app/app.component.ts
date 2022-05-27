@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { environment } from 'src/environments/environment';
 import { SubSink } from 'subsink';
-import { User } from './models';
+import { UsersModel } from './models';
 import { AccountService } from './services';
 
 @Component({
@@ -14,7 +14,7 @@ import { AccountService } from './services';
 })
 export class AppComponent{
   private subs: SubSink;
-  user: User;
+  user: UsersModel;
   getTitle: string = environment.appTitle;
   pageTitle: string;
 

@@ -9,6 +9,8 @@ import { SubSink } from 'subsink';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   private subs = new SubSink();
+  belum: string = null;
+  sudah: string = null;
 
   constructor(
     private service:DashboardService
@@ -16,6 +18,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   
   public logout(): void {
     // todo
+  }
+
+  encrypt(){
+    this.subs.add(this.service.encrypt(this.belum).subscribe(x => console.log(x)));
   }
 
   ngOnInit(): void{

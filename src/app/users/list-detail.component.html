@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>User Detail</h2>
+<div mat-dialog-content>
+    <mat-card>
+        <p>
+            User ID - {{data.form.ID}} <br/>
+            Username - {{data.form.USERNAME}} <br/>
+            Password - {{data.form.PASSWORD}} <br/>
+            Role ID - {{data.form.ROLE_ID}} <br/>
+        </p>
+    </mat-card>
+
+    <br/>
+
+    <p>
+        <button mat-stroked-button color="primary" routerLink="users/edit/{{data.form.ID}}" mat-dialog-close>Edit</button>
+        <button mat-button color="warn" (click)="deleteUser(data.form.ID)" mat-dialog-close>Delete</button>
+    </p>
+    
+    
+</div>
+

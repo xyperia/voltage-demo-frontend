@@ -1,0 +1,29 @@
+<mat-card>
+    <h2>Web Configurations</h2> <br/>
+    
+    <mat-slide-toggle
+        color="primary"
+        [(ngModel)]="lsEncrypt"
+        [disabled]="false">
+        Encrypt local storage
+    </mat-slide-toggle> <br/><br/>
+
+    <mat-slide-toggle
+        color="primary"
+        [(ngModel)]="passHash"
+        [disabled]="false">
+        Password hashing with Bcrypt
+    </mat-slide-toggle> <br/><br/>
+
+    <mat-slide-toggle
+        color="primary"
+        [(ngModel)]="adminLogin"
+        [disabled]="false">
+        Administrator login
+    </mat-slide-toggle> <br/><br/><hr style="visibility: hidden;">
+
+    <p>
+        <button mat-stroked-button color="primary" routerLink="users/edit/2">Save</button>
+    </p>
+
+</mat-card>

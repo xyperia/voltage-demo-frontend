@@ -5,27 +5,27 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from 'src/environments/environment';
-import { User } from '../models';
+import { UsersModel } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
-    private userSubject: BehaviorSubject<User>;
-    public user: Observable<User>;
+    private userSubject: BehaviorSubject<UsersModel>;
+    public user: Observable<UsersModel>;
 
     constructor(
         private router: Router,
         private http: HttpClient
     ) {
-        this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+        this.userSubject = new BehaviorSubject<UsersModel>(JSON.parse(localStorage.getItem('user')));
         this.user = this.userSubject.asObservable();
     }
 
-    public get userValue(): User {
+    public get userValue(): UsersModel {
         return this.userSubject.value;
     }
 
     login(USERNAME, PASSWORD) {
-        return this.http.post<User>(`${environment.apiUrl}/auth`, { USERNAME, PASSWORD })
+        return this.http.post<UsersModel>(`${environment.apiUrl}/auth`, { USERNAME, PASSWORD })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
                 localStorage.setItem('user', JSON.stringify(user));
@@ -42,16 +42,16 @@ export class AccountService {
         this.router.navigate(['/account/login']);
     }
 
-    register(user: User) {
+    register(user: UsersModel) {
         return this.http.post(`${environment.apiUrl}/users`, user);
     }
 
     getAll() {
-        return this.http.get<User[]>(`${environment.apiUrl}/users/getall`);
+        return this.http.get<UsersModel[]>(`${environment.apiUrl}/users/getall`);
     }
 
     getById(id: string) {
-        return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
+        return this.http.get<UsersModel>(`${environment.apiUrl}/users/${id}`);
     }
 
     update(id, params) {
@@ -79,6 +79,6 @@ export class AccountService {
         //         }
         //         return x;
         //     }));
-        return this.http.get<User>(`${environment.apiUrl}/users/delete/${ID}`);
+        return this.http.get<UsersModel>(`${environment.apiUrl}/users/delete/${ID}`);
     }
 }
