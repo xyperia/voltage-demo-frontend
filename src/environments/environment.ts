@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  appTitle: 'DemoApp',
-  apiUrl: 'http://localhost:3000'
+  appTitle: 'VoltageDemo',
+  apiUrl: 'http://10.8.150.181:3000'
 };
 
 /*

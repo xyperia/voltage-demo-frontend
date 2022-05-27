@@ -1,13 +1,41 @@
-Ini halaman Dashboards
+<mat-card>
+    <h2>Text Encryption</h2>
 
-<mat-form-field class="form-width" appearance="fill">
-    <input matInput type="text" formControlName="belum">
-</mat-form-field>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Plain Text</mat-label>
+        <textarea matInput [(ngModel)]="enPlain">Text to Encrypt</textarea>
+    </mat-form-field>
 
-<button mat-button (click)="encrypt()">
-Encrypt
-</button>
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Cipher Text</mat-label>
+        <textarea matInput [(ngModel)]="enCipher">Text to Decrypt</textarea>
+    </mat-form-field>
 
-<mat-form-field class="form-width" appearance="fill">
-    <input matInput type="text" formControlName="sudah">
-</mat-form-field>
+    <button mat-stroked-button color="primary" (click)="encrypt()">
+        Submit
+    </button> &nbsp;
+    <button mat-button (click)="enCipher=''; enPlain=''">
+        Clear
+    </button>
+</mat-card>
+
+<mat-card>
+    <h2>Text Decryption</h2>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Cipher Text</mat-label>
+        <textarea matInput [(ngModel)]="dePlain">Text to Encrypt</textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Plain Text</mat-label>
+        <textarea matInput [(ngModel)]="deCipher">Text to Decrypt</textarea>
+    </mat-form-field>
+
+    <button mat-stroked-button color="primary" (click)="decrypt()">
+        Submit
+    </button> &nbsp;
+    <button mat-button (click)="deCipher=''; dePlain=''">
+        Clear
+    </button>
+</mat-card>
